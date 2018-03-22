@@ -10,10 +10,11 @@ Our client, Koala Holla (1976 Llama Comma Drive, Walla Walla WA) is a non-profit
 
 Technologies
 ------------
-* JQuery
-* Node
+* MongoDB
 * Express
-* SQL
+* AngularJS
+* Node
+
 
 Client needs
 ------------
@@ -24,11 +25,11 @@ Koala Holla has provided a table of their current inventory:
 | 1  | Scotty  | M      | 4   | Y                | Born in Guatemala                |
 | 2  | Jean    | F      | 5   | Y                | Allergic to lots of lava         |
 | 3  | Ororo   | F      | 7   | N                | Loves listening to Paula (Abdul) |
-| 4  | Logan   | M      | 15  | N                | Loves the sauna                  |
+| 4  | Logan   | M      | 15  | N                | Enjoys the sauna                  |
 | 5  | Charlie | M      | 9   | Y                | Favorite band is Nirvana         |
 | 6  | Betsy   | F      | 4   | Y                | Has a pet iguana                 |
 
-They want a database table that houses this information and can be viewed at any time. You should create a `koala_holla` database and add the data from the table above to a `koala` table. After adding the data, create a web app to display the Koalas. Users should be able to add new Koalas to the database through the provided HTML form.
+They want a database table that houses this information and can be viewed at any time. You should create a new `koala_holla` database and add the data from the table above to a `koala` table. After adding the data, create a web app to display the Koalas. Users should be able to add new Koalas to the database through the provided HTML form.
 
 They have also provided their logo and the source code from when Lou (a KH employee) tried to spin up a JEN stack project to support this, but had to leave for foraging school in Finland before he could finally finish. (JEN is short for jQuery, Express & Node).
 
