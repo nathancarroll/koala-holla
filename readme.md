@@ -41,15 +41,16 @@ They need the ability to add a Koala to the database. Make a form with the appro
 
 They need the ability for mark a Koala ready for transfer. Each koala in your UI needs a button in that reads 'Ready for Transfer'. When the user clicks on the button, it should update the database for the specific Koala. The 'Ready for Transfer' button should only appear for Koalas that haven't yet been marked ready for transfer.
 
-### HARD MODE
 
-1. Ability to delete a specific Koala from the database.  
 
 ### STRETCH GOALS
 
-1. Ability to edit other information (Name, Age, Notes) for existing Koalas in the db.
-2. Ability to toggle the display of Koalas ready for transfer.
-3. Add form validation, additional styling and a README.md.
+1. Ability to delete a specific Koala from the database.  
+2. Confrimation dialog before deleting (research SweetAlert).
+3. Ability to toggle the display of Koalas ready for transfer.
+4. Add form validation, additional styling and a README.md.
+5. Client side filtering with a text box
+6. Ability to edit other information (Name, Age, Notes) for existing Koalas in the db.
 
 
 Sample Output
