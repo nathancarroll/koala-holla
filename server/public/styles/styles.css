@@ -1,0 +1,24 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    margin: 0;
+    padding-top: 15px;
+}
+
+header {
+    height: 150px;
+}
+
+.icon {
+    float: left; margin: 0px 15px 15px 0px;
+    width: 150px;
+    height: 150px;
+}
+
+.container {
+    max-width: 780px;
+    margin: 0 auto;
+}
