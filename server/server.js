@@ -9,6 +9,7 @@ app.use(bodyParser.json()); // This line is required for Angular
 
 // Routes
 // Should these be in a router?
+const koala = require('./routes/koala.js');
 
 // POST
 app.post('/koala', (req, res) => {
