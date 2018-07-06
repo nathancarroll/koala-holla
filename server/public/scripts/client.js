@@ -57,4 +57,6 @@ app.controller('KoalaController', ['$http', function ($http) {
             console.log('Put Response', response);
         }); // end of PUT method
     }; // end of self.toggleReady
+
+    self.getKoalas();
 }]); // end of app.controller 
