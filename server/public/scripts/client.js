@@ -1,5 +1,3 @@
-console.log('js');
-
 const app = angular.module('KoalaApp', []);
 
 app.controller('KoalaController', ['$http', function ($http) {
@@ -23,12 +21,11 @@ app.controller('KoalaController', ['$http', function ($http) {
     }; // end of self.addKoala
 
     self.getKoalas = function () {
-        console.log('inside getK');
         $http({
             url: '/koala',
             method: 'GET'
         }).then(function (response) {
-            console.log(response);
+            // console.log(response);
             self.koalaList = response.data;
         }).catch(function (err) {
             console.log('Error message: ', err);
@@ -61,12 +58,16 @@ app.controller('KoalaController', ['$http', function ($http) {
         }).then(function (response) {
             console.log('Put Response', response);
             self.getKoalas();
+            self.newKoala.name = '';
+            self.newKoala.age = '';
+            self.newKoala.gender = '';
+            self.newKoala.ready_to_transfer = '';
+            self.newKoala.notes = '';
         }).catch(function(err){ 
             console.log('errrr',err);
         }); // end of PUT method
     
     }; // end of self.toggleReady
     
-    console.log(self.koalaList);
     self.getKoalas();
 }]); // end of app.controller 
