@@ -6,7 +6,7 @@ let koalaSchema = new Schema({
   name: {type: String, required: true},
   age: {type: Number},
   gender: {type: String},
-  readyForTransfer: {type: Boolean, required: true},
+  ready_to_transfer: {type: Boolean, required: true},
   notes: {type: String}
 });
 
