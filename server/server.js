@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
+const Koala = require('./public/models/koala.schema.js');
+
 
 const koala = require('./routes/koala.js');
 
@@ -42,6 +44,20 @@ mongoose.connection.on('error', (err) => {
 // Static files
 app.use(express.static('server/public'));
 app.use('/koala', koala);
+
+app.get('/search/:searchType/:searchKeyword', function(req, res){
+  console.log('Got to Search GET');
+  console.log(req.params.searchKeyword, req.params.searchType);
+  
+  Koala.find({
+    [req.params.searchType] : req.params.searchKeyword
+  }).then( function(response){
+    res.send(response);
+  }).catch(function(err){
+    console.log('error', err);
+    res.sendStatus(500);
+  })
+})
 // Start listening for requests on a specific port
 app.listen(PORT, () => {
   console.log('listening on port', PORT);

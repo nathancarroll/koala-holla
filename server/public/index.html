@@ -3,12 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Koala Holla</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
+    <script src="vendors/sweetalert.min.js"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
   </head>
   <body ng-app="KoalaApp">
+    <div id="background">
     <div class="container" ng-controller="KoalaController as vm">
+      <div id="elements">
       <header>
         <img src="images/icon.png" class="icon" />
         <h1>Koala Holla</h1>
@@ -22,15 +26,33 @@
       <input ng-model="vm.newKoala.name" type="text" placeholder="Name">
       <input ng-model="vm.newKoala.age" type="number" placeholder="Age">
       <input ng-model="vm.newKoala.gender" type="text" placeholder="Gender">
-      <input ng-model="vm.newKoala.ready_to_transfer" type="text" placeholder="Ready to Transfer?">
+      <!-- <input ng-model="vm.newKoala.ready_to_transfer" type="text" placeholder="Ready to Transfer?"> -->
+      <select ng-model="vm.newKoala.ready_to_transfer">
+          <option value="true">true</option>
+          <option value="false">false</option>
+      </select>
       <input ng-model="vm.newKoala.notes" type="text" placeholder="Notes">
-      <button ng-click="vm.addKoala(vm.newKoala)">Add Koala</button>
+      <button type="button" class="btn btn-outline-dark" ng-click="vm.addKoala(vm.newKoala)">Add Koala</button>
       <br>
       <hr>
       <br>
+      <h2>Search Koala</h2>
+      <div class="form-group">
+          <input ng-model="vm.searchKeyword" type="text" placeholder="Search">
+          <select ng-model="vm.searchType">
+              <option value="name">Name</option>
+              <option value="age">Age</option>
+              <option value="gender">Gender</option>
+              <option value="ready_to_transfer">Ready to Transfer</option>
+            </select>
+          <button type="button" class="btn btn-outline-dark" ng-click="vm.searchFunction(vm.searchType, vm.searchKeyword)">Search</button>
+          <button type="button" class="btn btn-outline-dark" ng-click="vm.resetSearch()">Reset</button>
+      </div>
+      <br>
+      <hr>
       <h2>All Koalas</h2>
       <!-- table of koalas -->
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -49,11 +71,13 @@
             <td>{{koala.gender}}</td>
             <td>{{koala.ready_to_transfer}}</td>
             <td>{{koala.notes}}</td>
-            <td><button ng-if="ready_to_transfer == false", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
-            <td><button ng-click="vm.deleteKoala(koala._id)">Remove Koala</button></td>
+            <td><button type="button" class="btn btn-outline-dark" ng-if="!koala.ready_to_transfer", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
+            <td><button type="button" class="btn btn-outline-dark" ng-click="vm.confirmDelete(koala._id)">Remove Koala</button></td>
           </tr>
         </tbody>
       </table>
     </div>
+    </div>
+  </div>
   </body>
 </html>
