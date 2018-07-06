@@ -40,6 +40,22 @@ app.controller('KoalaController', ['$http', function ($http) {
 
     }// end of self.getKoalas
 
+    self.confirmDelete = function(id){
+        swal({
+            title: "WAIT!",
+            text: "Are you sure you want to delete a Koala?",
+            buttons: true,
+            dangerMode: true
+        }).then(function(value){
+            console.log(value);
+            if (value){
+                self.deleteKoala(id);
+            }
+        }).catch(function(err){
+            console.log(err);
+        });
+    };
+
     self.deleteKoala = function (id) {
         console.log('id of koala to remove', id);
         $http({
@@ -48,11 +64,6 @@ app.controller('KoalaController', ['$http', function ($http) {
         }).then(function (response) {
             console.log(response);
             self.getKoalas();
-            swal({
-                title: "WAIT!",
-                text: "Are you sure you want to delete a Koala?",
-                buttons: ['No',true]
-            });
         }).catch(function (err) {
             console.log('Error: ', err);
         });// end of delete method
