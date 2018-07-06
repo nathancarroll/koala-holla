@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Koala Holla</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link rel="stylesheet" href="styles/styles.css">
     <script src="vendors/angular.min.js" charset="utf-8"></script>
     <script src="vendors/sweetalert.min.js"></script>
@@ -33,9 +34,22 @@
       <br>
       <hr>
       <br>
+      <h2>Search Koala</h2>
+      <div class="form-group">
+          <input ng-model="vm.searchKeyword" type="text" placeholder="Search">
+          <select ng-model="vm.searchType">
+              <option value="name">Name</option>
+              <option value="age">Age</option>
+              <option value="gender">Gender</option>
+              <option value="ready_to_transfer">Ready to Transfer</option>
+            </select>
+          <button ng-click="vm.searchFunction(vm.searchType, vm.searchKeyword)">Search</button>
+          <button ng-click="vm.resetSearch()">Reset</button>
+      </div>
+      <br>
       <h2>All Koalas</h2>
       <!-- table of koalas -->
-      <table>
+      <table class="table table-striped">
         <thead>
           <tr>
             <th>Name</th>
@@ -57,10 +71,6 @@
             <td><button ng-if="!koala.ready_to_transfer", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
             <td><button ng-click="vm.confirmDelete(koala._id)">Remove Koala</button></td>
           </tr>
-          <div>
-            <input ng-model="vm.searchKeyword" type="text" placeholder="Search">
-            <button ng-click="vm.searchFunction(vm.searchKeyword)">Search</button>
-          </div>
         </tbody>
       </table>
     </div>

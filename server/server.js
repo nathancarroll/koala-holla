@@ -45,11 +45,12 @@ mongoose.connection.on('error', (err) => {
 app.use(express.static('server/public'));
 app.use('/koala', koala);
 
-app.get('/search/:name', function(req, res){
+app.get('/search/:searchType/:searchKeyword', function(req, res){
   console.log('Got to Search GET');
+  console.log(req.params.searchKeyword, req.params.searchType);
   
   Koala.find({
-    name: req.params.name
+    [req.params.searchType] : req.params.searchKeyword
   }).then( function(response){
     res.send(response);
   }).catch(function(err){

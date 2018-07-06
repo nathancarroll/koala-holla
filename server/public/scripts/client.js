@@ -87,14 +87,21 @@ app.controller('KoalaController', ['$http', function ($http) {
     
     }; // end of self.toggleReady
     
+    self.resetSearch = function(){
+        self.getKoalas();
+    }
+
     self.getKoalas();
 
-    self.searchFunction = function(searchKeyword){
+    self.searchFunction = function(searchType, searchKeyword){
+        console.log(searchType, searchKeyword);
+        
         $http({
-            url: `/search/${searchKeyword}`,
+            url: `/search/${searchType}/${searchKeyword}`,
             method: 'GET'
         }).then(function(res){
-            console.log(res);
+            console.log(res.data);
+            self.koalaList = res.data;
         }).catch(function(err){
             console.log('error',err);
         })
