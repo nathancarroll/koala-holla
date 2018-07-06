@@ -32,8 +32,9 @@ Koala Holla has provided a table of their current inventory:
 
 They want a mongo database collection that houses this information and can be viewed at any time. The client has provided a file that can imported into your database to get started. To import the data, run the following commands:
 
-1. In Terminal, navigate to the project folder.
-2. Run this command: `mongoimport --db hadar --collection koalas --file koalas.js`
+1. Make a new database- koalaholla either with robo 3T or the mongo command line.
+2. In Terminal, navigate to the project folder.
+3. Run this command: `mongoimport --db koalaholla --collection koalas --file koalas.js`
 
 They have also provided their logo and the source code from when Lou (a KH employee) tried to spin up a MEAN stack project to support this, but had to leave for foraging school in Finland before he could finally finish. (MEAN is short for Mongo, Express, AngularJS, Node).
 
