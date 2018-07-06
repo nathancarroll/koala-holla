@@ -1,3 +1,5 @@
+
+
 const app = angular.module('KoalaApp', []);
 
 app.controller('KoalaController', ['$http', function ($http) {
@@ -14,6 +16,11 @@ app.controller('KoalaController', ['$http', function ($http) {
         }).then(function (response) {
             console.log(response);
             self.getKoalas();
+            self.newKoala.name = '';
+            self.newKoala.age = '';
+            self.newKoala.gender = '';
+            self.newKoala.ready_to_transfer = '';
+            self.newKoala.notes = '';
         }).catch(function (err) {
             console.log('error!', err);
         });// end of POST method
@@ -41,6 +48,11 @@ app.controller('KoalaController', ['$http', function ($http) {
         }).then(function (response) {
             console.log(response);
             self.getKoalas();
+            swal({
+                title: "WAIT!",
+                text: "Are you sure you want to delete a Koala?",
+                buttons: ['No',true]
+            });
         }).catch(function (err) {
             console.log('Error: ', err);
         });// end of delete method
@@ -58,11 +70,6 @@ app.controller('KoalaController', ['$http', function ($http) {
         }).then(function (response) {
             console.log('Put Response', response);
             self.getKoalas();
-            self.newKoala.name = '';
-            self.newKoala.age = '';
-            self.newKoala.gender = '';
-            self.newKoala.ready_to_transfer = '';
-            self.newKoala.notes = '';
         }).catch(function(err){ 
             console.log('errrr',err);
         }); // end of PUT method
