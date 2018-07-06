@@ -7,7 +7,7 @@ router.get('/', function(req, res){
     
     Koala.find({}).then(function(mongoRes){
         console.log('here is the mongo response', mongoRes);
-        res.sendStatus(201);
+        res.send(mongoRes);
     }).catch(function(err){
         console.log('error during mongo get request', err);
         res.sendStatus(500);
@@ -40,7 +40,7 @@ router.put('/:id', function(req, res){
     }).then( (response) => {
       res.sendStatus(200);
     })
-};
+});
 
 router.delete('/:id', function(req, res){
     console.log('got to koala DELETE');
@@ -54,3 +54,5 @@ router.delete('/:id', function(req, res){
         res.sendStatus(500);
     });   
 });
+
+module.exports = router;

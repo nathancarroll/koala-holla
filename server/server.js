@@ -4,6 +4,8 @@ const app = express();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 
+const koala = require('./routes/koala.js');
+
 // Configure body-parser for Angular and jQuery
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json()); // This line is required for Angular
@@ -23,7 +25,6 @@ mongoose.connection.on('error', (err) => {
 
 // Routes
 // Should these be in a router?
-const koala = require('./routes/koala.js');
 
 // // POST
 // app.post('/koala', (req, res) => {
@@ -40,7 +41,7 @@ const koala = require('./routes/koala.js');
 
 // Static files
 app.use(express.static('server/public'));
-
+app.use('/koala', koala);
 // Start listening for requests on a specific port
 app.listen(PORT, () => {
   console.log('listening on port', PORT);
