@@ -57,6 +57,10 @@
             <td><button ng-if="!koala.ready_to_transfer", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
             <td><button ng-click="vm.confirmDelete(koala._id)">Remove Koala</button></td>
           </tr>
+          <div>
+            <input ng-model="vm.searchKeyword" type="text" placeholder="Search">
+            <button ng-click="vm.searchFunction(vm.searchKeyword)">Search</button>
+          </div>
         </tbody>
       </table>
     </div>

@@ -88,4 +88,15 @@ app.controller('KoalaController', ['$http', function ($http) {
     }; // end of self.toggleReady
     
     self.getKoalas();
+
+    self.searchFunction = function(searchKeyword){
+        $http({
+            url: `/search/${searchKeyword}`,
+            method: 'GET'
+        }).then(function(res){
+            console.log(res);
+        }).catch(function(err){
+            console.log('error',err);
+        })
+    }
 }]); // end of app.controller 
