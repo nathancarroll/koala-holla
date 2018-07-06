@@ -10,7 +10,9 @@
     <script src="scripts/client.js" charset="utf-8"></script>
   </head>
   <body ng-app="KoalaApp">
+    <div id="background">
     <div class="container" ng-controller="KoalaController as vm">
+      <div id="elements">
       <header>
         <img src="images/icon.png" class="icon" />
         <h1>Koala Holla</h1>
@@ -30,7 +32,7 @@
           <option value="false">false</option>
       </select>
       <input ng-model="vm.newKoala.notes" type="text" placeholder="Notes">
-      <button ng-click="vm.addKoala(vm.newKoala)">Add Koala</button>
+      <button type="button" class="btn btn-outline-dark" ng-click="vm.addKoala(vm.newKoala)">Add Koala</button>
       <br>
       <hr>
       <br>
@@ -43,10 +45,11 @@
               <option value="gender">Gender</option>
               <option value="ready_to_transfer">Ready to Transfer</option>
             </select>
-          <button ng-click="vm.searchFunction(vm.searchType, vm.searchKeyword)">Search</button>
-          <button ng-click="vm.resetSearch()">Reset</button>
+          <button type="button" class="btn btn-outline-dark" ng-click="vm.searchFunction(vm.searchType, vm.searchKeyword)">Search</button>
+          <button type="button" class="btn btn-outline-dark" ng-click="vm.resetSearch()">Reset</button>
       </div>
       <br>
+      <hr>
       <h2>All Koalas</h2>
       <!-- table of koalas -->
       <table class="table table-striped">
@@ -68,11 +71,13 @@
             <td>{{koala.gender}}</td>
             <td>{{koala.ready_to_transfer}}</td>
             <td>{{koala.notes}}</td>
-            <td><button ng-if="!koala.ready_to_transfer", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
-            <td><button ng-click="vm.confirmDelete(koala._id)">Remove Koala</button></td>
+            <td><button type="button" class="btn btn-outline-dark" ng-if="!koala.ready_to_transfer", ng-click="vm.toggleReady(koala)">Mark Ready</button></td>
+            <td><button type="button" class="btn btn-outline-dark" ng-click="vm.confirmDelete(koala._id)">Remove Koala</button></td>
           </tr>
         </tbody>
       </table>
     </div>
+    </div>
+  </div>
   </body>
 </html>
