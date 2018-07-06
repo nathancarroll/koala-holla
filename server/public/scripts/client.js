@@ -51,6 +51,9 @@ app.controller('KoalaController', ['$http', function ($http) {
 
     self.toggleReady = function (koala) {
         console.log('toggle clicked');
+        console.log(koala);
+        
+        koala.ready_to_transfer = true;
         $http({
             url: `/koala/${koala._id}`,
             method: 'PUT',
